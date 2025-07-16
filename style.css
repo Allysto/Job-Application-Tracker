@@ -1,0 +1,120 @@
+/* === GLOBAL VARIABLES (THEME COLORS) === */
+:root {
+    /* Light Theme - Default */
+    --primary-color: #4a6bff;
+    --secondary-color: #f5f7ff;
+    --text-color: #333333;
+    --bg-color: #ffffff;
+    --card-bg: #f8f9fa;
+    --border-color: #e0e0e0;
+    /* Status Colors */
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+}
+
+/* Force light theme by default */
+body {
+    /* Explicitly set light theme colors */
+    --primary-color: #4a6bff;
+    --secondary-color: #f5f7ff;
+    --text-color: #333333;
+    --bg-color: #ffffff;
+    --card-bg: #f8f9fa;
+    --border-color: #e0e0e0;
+    
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+/* === ELEMENT STYLES WITH EXPLICIT COLORS === */
+
+/* Stats Cards */
+.stats-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    border: 1px solid var(--border-color); /* Added for visibility */
+}
+
+.stats-card h3 {
+    color: var(--primary-color);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+}
+
+/* Job Cards */
+.job-card {
+    background-color: var(--card-bg);
+    border-left: 4px solid var(--primary-color);
+}
+
+/* Status-specific colors */
+.job-card.applied { border-left-color: var(--info-color); }
+.job-card.interview { border-left-color: var(--warning-color); }
+.job-card.offer { border-left-color: var(--success-color); }
+.job-card.rejected { border-left-color: var(--danger-color); }
+
+/* Status badges */
+.status-applied {
+    background-color: rgba(23, 162, 184, 0.2);
+    color: #17a2b8; /* Hardcoded fallback */
+}
+.status-interview {
+    background-color: rgba(255, 193, 7, 0.2);
+    color: #ffc107; /* Hardcoded fallback */
+}
+.status-offer {
+    background-color: rgba(40, 167, 69, 0.2);
+    color: #28a745; /* Hardcoded fallback */
+}
+.status-rejected {
+    background-color: rgba(220, 53, 69, 0.2);
+    color: #dc3545; /* Hardcoded fallback */
+}
+
+/* Form Elements */
+.form-group input,
+.form-group select,
+.form-group textarea {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+}
+
+/* === TROUBLESHOOTING FIXES === */
+
+/* 1. Ensure variables are applied */
+body {
+    /* Force light theme initially */
+    color: var(--text-color, #333); /* Fallback value */
+    background-color: var(--bg-color, #fff); /* Fallback value */
+}
+
+/* 2. Add debug borders to check element sizing */
+.debug * {
+    outline: 1px solid red; /* Remove after debugging */
+}
+
+/* 3. Explicit color fallbacks for critical elements */
+.job-company {
+    color: var(--primary-color, #4a6bff);
+}
+
+/* === RESPONSIVE DESIGN === */
+@media (max-width: 768px) {
+    .applications-container {
+        grid-template-columns: 1fr;
+    }
+}

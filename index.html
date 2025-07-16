@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- BASIC META TAGS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application Tracker</title>
+    
+    <!-- STYLESHEETS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- MAIN CONTAINER -->
+    <div class="container">
+        <!-- HEADER WITH THEME TOGGLE -->
+        <header>
+            <h1>Job Application Tracker</h1>
+            <div class="theme-toggle">
+                <i class="fas fa-moon"></i>
+                <label class="switch">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider round"></span>
+                </label>
+                <i class="fas fa-sun"></i>
+            </div>
+        </header>
+
+        <!-- DASHBOARD STATS CARDS -->
+        <div class="dashboard">
+            <!-- CARD 1: TOTAL APPLICATIONS -->
+            <div class="stats-card">
+                <h3>Applications</h3>
+                <div class="stat" id="totalApps">0</div>
+            </div>
+            <!-- CARD 2: INTERVIEWS -->
+            <div class="stats-card">
+                <h3>Interviews</h3>
+                <div class="stat" id="interviewApps">0</div>
+            </div>
+            <!-- CARD 3: SUCCESS RATE -->
+            <div class="stats-card">
+                <h3>Success Rate</h3>
+                <div class="stat" id="successRate">0%</div>
+            </div>
+        </div>
+
+        <!-- FILTER AND ADD BUTTON CONTROLS -->
+        <div class="controls">
+            <div class="filter-controls">
+                <select id="statusFilter">
+                    <option value="all">All Applications</option>
+                    <option value="applied">Applied</option>
+                    <option value="interview">Interview</option>
+                    <option value="offer">Offer</option>
+                    <option value="rejected">Rejected</option>
+                </select>
+            </div>
+            <button id="addJobBtn" class="btn-primary">
+                <i class="fas fa-plus"></i> Add Application
+            </button>
+        </div>
+
+        <!-- APPLICATIONS LIST + CHART CONTAINER -->
+        <div class="applications-container">
+            <!-- LEFT SIDE: LIST OF APPLICATIONS -->
+            <div class="applications-list" id="applicationsList">
+                <!-- Applications will be added here by JavaScript -->
+            </div>
+            
+            <!-- RIGHT SIDE: CHART VISUALIZATION -->
+            <div class="chart-container">
+                <canvas id="statusChart"></canvas>
+            </div>
+        </div>
+
+        <!-- MODAL POPUP (HIDDEN BY DEFAULT) -->
+        <div class="modal" id="addJobModal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Add New Application</h2>
+                <form id="jobForm">
+                    <!-- FORM INPUTS -->
+                    <div class="form-group">
+                        <label for="companyName">Company Name</label>
+                        <input type="text" id="companyName" required placeholder="e.g., Entelect">
+                    </div>
+                    <div class="form-group">
+                        <label for="jobTitle">Job Title</label>
+                        <input type="text" id="jobTitle" required placeholder="e.g., Software Engineer">
+                    </div>
+                    <div class="form-group">
+                        <label for="applicationDate">Application Date</label>
+                        <input type="date" id="applicationDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobStatus">Status</label>
+                        <select id="jobStatus" required>
+                            <option value="applied">Applied</option>
+                            <option value="interview">Interview</option>
+                            <option value="offer">Offer</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobNotes">Notes</label>
+                        <textarea id="jobNotes" rows="3" placeholder="e.g., Technical interview on Friday..."></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Save Application</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPTS -->
+    <!-- Chart.js for the doughnut chart -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Main JavaScript file -->
+    <script src="main.js"></script>
+</body>
+</html>
