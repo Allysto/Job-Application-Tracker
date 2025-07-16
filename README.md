@@ -1,6 +1,6 @@
 # Job Application Tracker 📋
 
-![Project Screenshot](/screenshot1.jpg,screenshot2.jpg) *(Add screenshot later)*
+
 
 A responsive dashboard to track job applications with statistics visualization. Built with pure HTML, CSS, and JavaScript.
 
@@ -45,5 +45,5 @@ A responsive dashboard to track job applications with statistics visualization. 
 ## Installation 💻
 
 ### Option 1: GitHub Pages (Recommended)
-1. Visit live demo: [https://yourusername.github.io/job-application-tracker]()
+1. Visit live demo: [[https://yourusername.github.io/job-application-tracker]()](https://allysto.github.io/Job-Application-Tracker/)
 
